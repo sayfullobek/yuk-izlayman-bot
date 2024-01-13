@@ -89,19 +89,17 @@ public class Bot extends TelegramLongPollingBot {
                     BotConfig.IS_BUYURTMA.put(chatId, "buyurtma_region");
                 } else if (BotConfig.IS_BUYURTMA.get(chatId) != null) {
                     switch (BotConfig.IS_BUYURTMA.get(chatId)) {
-                        case "buyurtma_region" -> {
+                        case "buyurtma_region":
                             getBtnOut(chatId, "Chiquvchi viloyatni tanlang", BotConfig.regions);
                             BotConfig.IS_FIRST_REGION.put(chatId, text);
                             BotConfig.IS_BUYURTMA.replace(chatId, "buyurtma_region_out");
                             BotConfig.OUT_REGION.put(chatId, text);
-                        }
-                        case "buyurtma_region_out" -> {
+                        case "buyurtma_region_out":
                             shareContact(chatId, "Telefon raqamingizni ulashing", messageId);
                             BotConfig.IS_BUYURTMA.replace(chatId, "phoneNumber");
                             BotConfig.IS_LAST_REGION.put(chatId, text);
                             BotConfig.IN_REGION.put(chatId, text);
-                        }
-                        case "description_buyurtma" -> {
+                        case "description_buyurtma":
                             sendMsg(chatId, "Buyurtmangiz qabul qilindi", messageId);
                             BotConfig.IS_DESCRIPTION.put(chatId, text);
                             getBtn(chatId, "Tanlang", BotConfig.BUYURTMA_STAR_BTN);
@@ -117,7 +115,6 @@ public class Bot extends TelegramLongPollingBot {
                                 sendMsgBuyurtma(users.getChatId(), "Assalomu aleykum\n" + buyurtma.getFirstRegion() + " Viloyatidan " + buyurtma.getLastRegion() + " Viloyatiga yuk bor\nYuk haqida " + buyurtma.getDescription(), buyurtma.getId());
                             }
                             BotConfig.IS_BUYURTMA.remove(chatId);
-                        }
                     }
                 } else if (BotConfig.IS.get(chatId) != null) {
                     if (BotConfig.IS.get(chatId).equals("pos")) {
@@ -216,6 +213,7 @@ public class Bot extends TelegramLongPollingBot {
                 }
             }
         }
+
     }
 
     @SneakyThrows
