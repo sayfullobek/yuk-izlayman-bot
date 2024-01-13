@@ -94,11 +94,13 @@ public class Bot extends TelegramLongPollingBot {
                             BotConfig.IS_FIRST_REGION.put(chatId, text);
                             BotConfig.IS_BUYURTMA.replace(chatId, "buyurtma_region_out");
                             BotConfig.OUT_REGION.put(chatId, text);
+                            break;
                         case "buyurtma_region_out":
                             shareContact(chatId, "Telefon raqamingizni ulashing", messageId);
                             BotConfig.IS_BUYURTMA.replace(chatId, "phoneNumber");
                             BotConfig.IS_LAST_REGION.put(chatId, text);
                             BotConfig.IN_REGION.put(chatId, text);
+                            break;
                         case "description_buyurtma":
                             sendMsg(chatId, "Buyurtmangiz qabul qilindi", messageId);
                             BotConfig.IS_DESCRIPTION.put(chatId, text);
@@ -115,6 +117,7 @@ public class Bot extends TelegramLongPollingBot {
                                 sendMsgBuyurtma(users.getChatId(), "Assalomu aleykum\n" + buyurtma.getFirstRegion() + " Viloyatidan " + buyurtma.getLastRegion() + " Viloyatiga yuk bor\nYuk haqida " + buyurtma.getDescription(), buyurtma.getId());
                             }
                             BotConfig.IS_BUYURTMA.remove(chatId);
+                            break;
                     }
                 } else if (BotConfig.IS.get(chatId) != null) {
                     if (BotConfig.IS.get(chatId).equals("pos")) {

@@ -7,7 +7,9 @@ import java.util.Map;
 
 public interface BotConfig {
     String BOT_USERNAME = "yuk_topaman_bot";
+    //    String BOT_USERNAME = "revolution_8_first_bot";
     String BOT_TOKEN = "6776170493:AAF2js77hUjyLP0tgOfSNcpFNCyBedaUifg";
+    //    String BOT_TOKEN = "6562603667:AAFonsYgKOijdHlQUsEhcvrmOAGK5pfg7l4";
     List<String> START_BTN = Arrays.asList(
             "Buyurtma oluvchi ⛟", "Buyurtma beruvchi \uD83D\uDE9A"
     );
