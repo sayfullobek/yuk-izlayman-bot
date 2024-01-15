@@ -121,7 +121,7 @@ public class Bot extends TelegramLongPollingBot {
                     }
                 } else if (BotConfig.IS.get(chatId) != null) {
                     if (BotConfig.IS.get(chatId).equals("pos")) {
-                        getBtn(chatId, "Tanlang", BotConfig.OLUVCHI_BTN);
+                        getBtn(chatId, "Endi sizga " + text + " bo'ylab harakatlanadigan yuklar aylanmasi yuborliadi", BotConfig.OLUVCHI_BTN);
                         usersService.changeRegion(chatId, text);
                         BotConfig.IS_POSITION.put(chatId, text);
                         BotConfig.IS.remove(chatId);
